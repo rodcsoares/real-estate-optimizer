@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Real Estate Investment Timing Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="screen active">
+            <div class="container">
+                <div class="welcome-content">
+                    <h1>AI-Powered Real Estate Investment Timing Optimizer</h1>
+                    <p class="subtitle">Make smarter home buying decisions with personalized analysis of Canadian real estate markets</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Personal Affordability</h3>
+                            <p>Calculate your maximum budget with RRSP, TFSA, and FHSA integration</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Market Analysis</h3>
+                            <p>Compare regional markets across Canadian cities with real-time data</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Timing Optimization</h3>
+                            <p>Seasonal analysis to find the best months to buy your home</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏠</div>
+                            <h3>First-Time Buyer Programs</h3>
+                            <p>Maximize government benefits and tax advantages</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--lg" onclick="startAnalysis()">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Profile Form -->
+        <section id="profile-screen" class="screen">
+            <div class="container">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%"></div>
+                </div>
+                
+                <h2>Tell Us About Your Financial Situation</h2>
+                <p class="section-subtitle">We'll use this information to provide personalized recommendations</p>
+                
+                <form id="profile-form" class="profile-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="annual-income">Annual Household Income</label>
+                            <input type="range" id="annual-income" class="income-slider" min="50000" max="300000" step="5000" value="188000">
+                            <div class="slider-value">$<span id="income-display">188,000</span></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="current-savings">Current Savings Available</label>
+                            <input type="range" id="current-savings" class="savings-slider" min="25000" max="500000" step="5000" value="172000">
+                            <div class="slider-value">$<span id="savings-display">172,000</span></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="monthly-expenses">Monthly Expenses</label>
+                            <input type="range" id="monthly-expenses" class="expenses-slider" min="1000" max="8000" step="100" value="2400">
+                            <div class="slider-value">$<span id="expenses-display">2,400</span></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="risk-tolerance">Risk Tolerance</label>
+                            <select id="risk-tolerance" class="form-control">
+                                <option value="conservative">Conservative - Stability focused</option>
+                                <option value="moderate" selected>Moderate - Balanced approach</option>
+                                <option value="aggressive">Aggressive - Growth oriented</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Target Regions</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Vancouver"> Vancouver
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Toronto"> Toronto
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Calgary"> Calgary
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Surrey" checked> Surrey
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Langley" checked> Langley
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="Abbotsford" checked> Abbotsford
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Property Type Preferences</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="detached" checked> Detached House
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="townhouse" checked> Townhouse
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="apartment"> Apartment/Condo
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="timeline">Purchase Timeline</label>
+                            <select id="timeline" class="form-control">
+                                <option value="2025">2025 - This year</option>
+                                <option value="2026" selected>2026 - Next year</option>
+                                <option value="2027">2027 - In 2 years</option>
+                                <option value="2028+">2028+ - 3+ years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label first-time-buyer">
+                                <input type="checkbox" id="first-time-buyer" checked> I am a first-time home buyer
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="showScreen('welcome-screen')">Back</button>
+                        <button type="submit" class="btn btn--primary">Calculate Affordability</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Affordability Results -->
+        <section id="affordability-screen" class="screen">
+            <div class="container">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%"></div>
+                </div>
+                
+                <h2>Your Affordability Analysis</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card primary">
+                        <h3>Maximum Home Price</h3>
+                        <div class="big-number" id="max-home-price">$0</div>
+                        <div class="qualification-status" id="qualification-status">
+                            <span class="status status--success">Qualified</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Monthly Payment</h3>
+                        <div class="payment-breakdown">
+                            <div class="payment-item">
+                                <span>Principal & Interest</span>
+                                <span id="pi-payment">$0</span>
+                            </div>
+                            <div class="payment-item">
+                                <span>Property Tax & Insurance</span>
+                                <span id="pti-payment">$500</span>
+                            </div>
+                            <div class="payment-total">
+                                <span>Total Monthly</span>
+                                <span id="total-payment">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h3>Debt Service Ratios</h3>
+                        <div class="ratio-item">
+                            <div class="ratio-label">
+                                <span>GDS Ratio</span>
+                                <span class="ratio-value" id="gds-ratio">0%</span>
+                            </div>
+                            <div class="ratio-bar">
+                                <div class="ratio-fill" id="gds-fill"></div>
+                            </div>
+                            <small>Recommended: ≤32%</small>
+                        </div>
+                        <div class="ratio-item">
+                            <div class="ratio-label">
+                                <span>TDS Ratio</span>
+                                <span class="ratio-value" id="tds-ratio">0%</span>
+                            </div>
+                            <div class="ratio-bar">
+                                <div class="ratio-fill" id="tds-fill"></div>
+                            </div>
+                            <small>Recommended: ≤40%</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="interest-rate-analysis">
+                    <h3>Interest Rate Sensitivity Analysis</h3>
+                    <div class="rate-scenarios">
+                        <div class="scenario-controls">
+                            <label>Test Interest Rate: <span id="test-rate-display">2.5%</span></label>
+                            <input type="range" id="test-rate-slider" min="2.0" max="6.0" step="0.25" value="2.5">
+                        </div>
+                        <div class="scenario-results" id="scenario-results">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn--secondary" onclick="showScreen('profile-screen')">Back</button>
+                    <button type="button" class="btn btn--primary" onclick="showScreen('market-screen')">View Market Analysis</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Analysis -->
+        <section id="market-screen" class="screen">
+            <div class="container">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                
+                <h2>Regional Market Analysis</h2>
+                
+                <div class="current-rate-banner">
+                    <div class="rate-info">
+                        <span class="rate-label">Current Bank of Canada Rate</span>
+                        <span class="rate-value">2.50%</span>
+                        <span class="rate-change">↓ -0.25% this month</span>
+                    </div>
+                </div>
+                
+                <div class="market-comparison">
+                    <div class="comparison-header">
+                        <h3>Your Target Cities Comparison</h3>
+                        <div class="property-type-selector">
+                            <button class="property-btn active" data-type="detached">Detached</button>
+                            <button class="property-btn" data-type="townhouse">Townhouse</button>
+                            <button class="property-btn" data-type="apartment">Apartment</button>
+                        </div>
+                    </div>
+                    
+                    <div class="cities-grid" id="cities-grid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="chart-section">
+                    <h3>Interest Rate Trends</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/ee54c683168edc05d694ca7e4adf59fa/ed46700c-9a8c-49cb-8e8b-2db4f8d631d7/6b64d501.png" alt="Interest Rate Trends 2020-2025" class="chart-image">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn--secondary" onclick="showScreen('affordability-screen')">Back</button>
+                    <button type="button" class="btn btn--primary" onclick="showScreen('timing-screen')">Timing Analysis</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timing Analysis -->
+        <section id="timing-screen" class="screen">
+            <div class="container">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                </div>
+                
+                <h2>Optimal Purchase Timing</h2>
+                
+                <div class="timing-analysis">
+                    <div class="seasonal-chart-container" style="position: relative; height: 400px;">
+                        <canvas id="seasonal-chart"></canvas>
+                    </div>
+                    
+                    <div class="timing-recommendations">
+                        <h3>Best Months to Buy</h3>
+                        <div class="month-recommendations" id="month-recommendations">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="timing-insights">
+                        <div class="insight-card">
+                            <h4>Market Activity Patterns</h4>
+                            <p>Spring (April-May) shows highest activity but increased competition. Consider February-March for better negotiating position.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Price Volatility</h4>
+                            <p>Summer months (June-July) show highest price volatility. Fall (September-October) offers more stable pricing.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn--secondary" onclick="showScreen('market-screen')">Back</button>
+                    <button type="button" class="btn btn--primary" onclick="showScreen('programs-screen')">View Benefits</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- First-Time Buyer Programs -->
+        <section id="programs-screen" class="screen">
+            <div class="container">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%"></div>
+                </div>
+                
+                <h2>Available First-Time Home Buyer Benefits</h2>
+                
+                <div class="benefits-summary">
+                    <div class="total-benefits">
+                        <h3>Total Available Benefits</h3>
+                        <div class="benefit-total" id="total-benefits">$0</div>
+                        <p>Combined savings from all eligible programs</p>
+                    </div>
+                </div>
+                
+                <div class="programs-grid" id="programs-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+                
+                <div class="optimization-tips">
+                    <h3>Optimization Strategies</h3>
+                    <div class="tips-list" id="optimization-tips">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn--secondary" onclick="showScreen('timing-screen')">Back</button>
+                    <button type="button" class="btn btn--primary" onclick="showScreen('recommendations-screen')">Get Recommendations</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Recommendations -->
+        <section id="recommendations-screen" class="screen">
+            <div class="container">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%"></div>
+                </div>
+                
+                <h2>Your Personalized Action Plan</h2>
+                
+                <div class="recommendations-summary">
+                    <div class="recommendation-card primary">
+                        <h3>🎯 Top Recommendation</h3>
+                        <div id="top-recommendation">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card">
+                            <h4>Best Cities for You</h4>
+                            <div id="city-recommendations">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <h4>Optimal Timing</h4>
+                            <div id="timing-recommendation">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <h4>Risk Assessment</h4>
+                            <div id="risk-assessment">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-plan">
+                    <h3>Next Steps</h3>
+                    <div class="action-steps" id="action-steps">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn--secondary" onclick="showScreen('programs-screen')">Back</button>
+                    <button type="button" class="btn btn--primary" onclick="printSummary()">Save Analysis</button>
+                    <button type="button" class="btn btn--outline" onclick="showScreen('welcome-screen')">Start Over</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

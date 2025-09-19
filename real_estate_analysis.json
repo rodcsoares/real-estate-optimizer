@@ -1,0 +1,149 @@
+{
+  "user_profile": {
+    "combined_annual_income": 188000,
+    "current_savings": 172000,
+    "rrsp_room": 130000,
+    "target_regions": [
+      "Langley",
+      "Abbotsford",
+      "Surrey"
+    ],
+    "property_types": [
+      "Detached",
+      "Townhouse"
+    ],
+    "timeline": "2026",
+    "max_budget": 1100000
+  },
+  "optimal_recommendations": {
+    "primary_target": {
+      "city": "Abbotsford",
+      "property_type": "Townhouse",
+      "estimated_price": 677634,
+      "monthly_payment": 2154,
+      "down_payment_required": 197600,
+      "qualification_status": "Approved"
+    },
+    "timing_recommendations": {
+      "best_months": [
+        "February",
+        "April",
+        "May"
+      ],
+      "reasoning": "Low price volatility and good market activity",
+      "current_market_status": "Buyer's market",
+      "days_on_market": 58
+    },
+    "interest_rate_analysis": {
+      "current_rate": 2.5,
+      "qualification_threshold": 3.0,
+      "risk_assessment": "Low risk - rates recently cut to 2.5%"
+    }
+  },
+  "affordability_scenarios": [
+    {
+      "scenario": "Current Conditions (2.5% rate)",
+      "home_price": 850000,
+      "down_payment": 197600,
+      "monthly_payment": 2927,
+      "gds_ratio": 0.263,
+      "tds_ratio": 0.417,
+      "qualifies": true
+    },
+    {
+      "scenario": "Rate Increase to 3.0%",
+      "home_price": 850000,
+      "down_payment": 197600,
+      "monthly_payment": 3094,
+      "gds_ratio": 0.278,
+      "tds_ratio": 0.427,
+      "qualifies": false
+    },
+    {
+      "scenario": "Rate Increase to 3.5%",
+      "home_price": 850000,
+      "down_payment": 197600,
+      "monthly_payment": 3266,
+      "gds_ratio": 0.293,
+      "tds_ratio": 0.438,
+      "qualifies": false
+    }
+  ],
+  "first_time_buyer_programs": {
+    "total_available_benefits": 148770,
+    "programs": [
+      {
+        "name": "RRSP Home Buyer's Plan",
+        "benefit_amount": 60000,
+        "description": "Tax-free withdrawal from RRSP for down payment"
+      },
+      {
+        "name": "First-Home Savings Account",
+        "benefit_amount": 40000,
+        "description": "Tax-deductible contributions, tax-free withdrawals"
+      },
+      {
+        "name": "Property Transfer Tax Exemption",
+        "benefit_amount": 8000,
+        "description": "Full or partial exemption for homes under $835,000"
+      },
+      {
+        "name": "BC Home Owner Grant",
+        "benefit_amount": 770,
+        "description": "Annual property tax relief"
+      }
+    ]
+  },
+  "regional_comparison": [
+    {
+      "city": "Abbotsford",
+      "median_price_detached": 1213441,
+      "median_price_townhouse": 677634,
+      "affordability_rating": "Good",
+      "market_conditions": "Balanced",
+      "recommendation": "Primary target - best affordability"
+    },
+    {
+      "city": "Langley",
+      "median_price_detached": 1393229,
+      "median_price_townhouse": 822340,
+      "affordability_rating": "Moderate",
+      "market_conditions": "Competitive",
+      "recommendation": "Secondary option - higher prices"
+    },
+    {
+      "city": "Surrey",
+      "median_price_detached": 1507321,
+      "median_price_townhouse": 885314,
+      "affordability_rating": "Challenging",
+      "market_conditions": "Competitive",
+      "recommendation": "Monitor for opportunities"
+    }
+  ],
+  "market_indicators": {
+    "interest_rate_trend": "Declining (recently cut to 2.5%)",
+    "housing_supply": "Improving inventory levels",
+    "price_trend": "Stabilizing after recent declines",
+    "economic_outlook": "Cautious optimism with rate cuts supporting demand"
+  },
+  "risk_factors": [
+    "Interest rate volatility - qualification at risk above 3.0%",
+    "Economic uncertainty from trade tensions",
+    "Regional market concentration in Fraser Valley",
+    "High debt service ratios requiring expense management"
+  ],
+  "action_plan": {
+    "immediate_steps": [
+      "Reduce monthly expenses to $2,400 or below",
+      "Open FHSA and maximize contributions",
+      "Begin RRSP HBP qualification process",
+      "Get pre-approved at current rates"
+    ],
+    "timeline": {
+      "Q4_2025": "Complete financial optimization and pre-approval",
+      "Q1_2026": "Begin active house hunting in target areas",
+      "Q2_2026": "Ideal purchase window (April-May)",
+      "Q3_2026": "Backup window if Q2 unsuccessful"
+    }
+  }
+}
