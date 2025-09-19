@@ -1,0 +1,114 @@
+diff --git a/index.html b/index.html
+index abc1234..def5678 100644
+--- a/index.html
++++ b/index.html
+@@ -52,7 +52,34 @@
+             <div class="feature-card">
+                 <div class="feature-icon">🏠</div>
+                 <h3>First-Time Buyer Programs</h3>
+-                <p>Maximize government benefits and tax advantages</p>
++                <p>Maximize government benefits and tax advantages</p>
+             </div>
+         </div>
++
++        <!-- NEW: Tab Container for Enhanced App -->
++        <div class="tabs" id="enhanced-tabs">
++            <button class="tab" onclick="showEnhancedTab('enhanced-profile')">💼 Profile</button>
++            <button class="tab" onclick="showEnhancedTab('enhanced-afford')">💰 Affordability</button>
++            <button class="tab" onclick="showEnhancedTab('enhanced-market')">🏘️ Market</button>
++            <button class="tab" onclick="showEnhancedTab('enhanced-timing')">⏰ Timing</button>
++            <button class="tab" onclick="showEnhancedTab('enhanced-savings')">💳 Savings</button>
++            <button class="tab" onclick="showEnhancedTab('enhanced-action')">🎯 Plan</button>
++        </div>
++
++        <!-- NEW: Enhanced Sections -->
++        <div id="enhanced-profile" class="enhanced-tab-content">
++            <!-- RRSP/TFSA projection fields -->
++            <!-- Insert form groups and metrics here per integration guide -->
++        </div>
++
++        <div id="enhanced-afford" class="enhanced-tab-content">
++            <!-- Down payment optimization and new affordability metrics -->
++        </div>
++
++        <div id="enhanced-market" class="enhanced-tab-content">
++            <!-- Price distribution, market heat, days on market widgets -->
++        </div>
++
++        <div id="enhanced-timing" class="enhanced-tab-content">
++            <!-- Seasonal timing (unchanged original) -->
++        </div>
++
++        <div id="enhanced-savings" class="enhanced-tab-content">
++            <!-- Savings timeline chart container -->
++            <canvas id="savingsChart"></canvas>
++        </div>
++
++        <div id="enhanced-action" class="enhanced-tab-content">
++            <!-- Action plan items -->
++        </div>
+diff --git a/style.css b/style.css
+index 123abcd..456efgh 100644
+--- a/style.css
++++ b/style.css
+@@ -10,6 +10,30 @@ body {
+     background: #f0f2f5;
+     color: #333;
+ }
++
++/* Enhanced tab styles */
++.enhanced-tab-content { display: none; padding: 20px; background: #fff; border-radius: 8px; margin-top: 20px; }
++.enhanced-tab-content.active { display: block; }
++
++.tabs button.tab { margin-right: 8px; background: none; border: none; cursor: pointer; padding: 10px 16px; font-size: 1rem; }
++.tabs button.tab.active { border-bottom: 2px solid #007bff; color: #007bff; }
++
++/* Card overrides for enhanced metrics */
++.metric-card { border-left: 4px solid #007bff; padding: 16px; margin-bottom: 16px; }
++.chart-container { position: relative; height: 300px; margin-top: 20px; }
+diff --git a/app.js b/app.js
+index 789ijkl..012mnop 100644
+--- a/app.js
++++ b/app.js
+@@ -5,6 +5,50 @@ document.addEventListener('DOMContentLoaded', function() {
+     startApp();
+ });
++
++// Enhanced tab-switcher
++function showEnhancedTab(id) {
++    // Hide all enhanced sections
++    document.querySelectorAll('.enhanced-tab-content').forEach(el => el.classList.remove('active'));
++    // Deactivate all enhanced tabs
++    document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
++    // Show the selected section
++    document.getElementById(id).classList.add('active');
++    // Activate corresponding button
++    document.querySelector(`.tabs .tab[onclick*="${id}"]`).classList.add('active');
++}
++
++// Initialization: show first enhanced tab by default
++document.addEventListener('DOMContentLoaded', function() {
++    showEnhancedTab('enhanced-profile');
++    updateAccounts();      // Fill RRSP/TFSA metrics
++    updateSavingsProjection();  // Build savings chart
++});
++
++// RRSP & TFSA update logic
++function updateAccounts() {
++    // (Use the integration guide’s code to compute and populate metrics)
++}
++
++// Savings projection
++function updateSavingsProjection() {
++    // (Use Chart.js to draw cumulative savings over months)
++}
++
++// Market analysis update
++function updateMarketAnalysis() {
++    // (Fetch and render enhanced market data per integration guide)
++}
++
++// Affordability update
++function updateAffordability() {
++    // (Compute new down payment percentages and mortgage amounts)
++}
